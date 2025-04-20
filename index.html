@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>难忘小学生活</title>
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@400;700&display=swap"
+		rel="stylesheet">
+	<style>
+		:root {
+			--primary-color: #5d9cec;
+			--secondary-color: #a0d468;
+			--accent-color: #ffce54;
+			--dark-color: #434a54;
+			--light-color: #f5f7fa;
+			--shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+			--transition: all 0.3s ease;
+		}
+
+		body {
+			font-family: 'Noto Serif SC', serif;
+			line-height: 1.8;
+			color: var(--dark-color);
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: 20px;
+			background: linear-gradient(135deg, #f5f7fa 0%, #e6e9f0 100%);
+			background-attachment: fixed;
+			text-align: center;
+		}
+
+		h1 {
+			text-align: center;
+			color: var(--dark-color);
+			margin: 40px 0 60px;
+			font-size: 2.5rem;
+			font-weight: 700;
+			position: relative;
+			display: inline-block;
+			font-family: 'Ma Shan Zheng', cursive;
+		}
+
+		h1::after {
+			content: '';
+			position: absolute;
+			bottom: -10px;
+			left: 0;
+			width: 100%;
+			height: 3px;
+			background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--accent-color));
+			border-radius: 3px;
+		}
+
+		.button-container {
+			display: flex;
+			justify-content: center;
+			gap: 30px;
+			margin-top: 50px;
+			flex-wrap: wrap;
+		}
+
+		.main-button {
+			padding: 15px 30px;
+			background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+			color: white;
+			border: none;
+			border-radius: 30px;
+			cursor: pointer;
+			font-size: 18px;
+			font-weight: bold;
+			box-shadow: var(--shadow);
+			transition: var(--transition);
+			display: inline-flex;
+			align-items: center;
+			min-width: 180px;
+			justify-content: center;
+		}
+
+		.main-button:hover {
+			transform: translateY(-5px);
+			box-shadow: 0 8px 20px rgba(93, 156, 236, 0.4);
+		}
+
+		.main-button i {
+			margin-right: 10px;
+			font-size: 20px;
+		}
+
+		footer {
+			text-align: center;
+			margin-top: 100px;
+			padding: 20px;
+			color: #888;
+			font-size: 0.9rem;
+			border-top: 1px solid #eee;
+		}
+
+		@media (max-width: 768px) {
+			.button-container {
+				flex-direction: column;
+				gap: 20px;
+			}
+
+			h1 {
+				font-size: 2rem;
+				margin: 30px 0 40px;
+			}
+
+			.main-button {
+				width: 100%;
+				max-width: 300px;
+			}
+		}
+
+		.info-box {
+			max-width: 600px;
+			margin: 30px auto;
+			padding: 25px;
+			background: white;
+			border-radius: 12px;
+			box-shadow: var(--shadow);
+			animation: fadeIn 0.5s ease;
+		}
+
+		.info-content h3 {
+			color: var(--primary-color);
+			margin-bottom: 20px;
+			text-align: center;
+			font-size: 1.5rem;
+		}
+
+		.info-item {
+			display: flex;
+			margin-bottom: 15px;
+			line-height: 1.6;
+		}
+
+		.info-label {
+			font-weight: bold;
+			color: var(--dark-color);
+			min-width: 80px;
+		}
+
+		.info-value {
+			color: #666;
+			flex: 1;
+		}
+
+		@keyframes fadeIn {
+			from {
+				opacity: 0;
+				transform: translateY(10px);
+			}
+
+			to {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
+
+		.message-content {
+			text-align: center;
+			line-height: 1.8;
+			margin-bottom: 20px;
+		}
+
+		.message-content p {
+			margin: 10px 0;
+		}
+
+		.number-buttons {
+			display: grid;
+			grid-template-columns: repeat(10, 1fr);
+			gap: 8px;
+			margin-top: 15px;
+		}
+
+		.number-btn {
+			padding: 8px;
+			background: var(--light-color);
+			border: 1px solid var(--primary-color);
+			border-radius: 4px;
+			cursor: pointer;
+			transition: var(--transition);
+		}
+
+		.number-btn:hover {
+			background: var(--primary-color);
+			color: white;
+		}
+
+		#specialMessageBox {
+			padding: 15px;
+			background: #f8f9fa;
+			border-radius: 8px;
+			border-left: 4px solid var(--primary-color);
+		}
+
+		#specialMessageBox h4 {
+			color: var(--primary-color);
+			margin-bottom: 10px;
+		}
+
+		.special-message-btn {
+			background-color: #a0d468 !important;
+			border-color: #8cc152 !important;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>难忘小学生活</h1>
+
+	<div class="button-container">
+		<button class="main-button" onclick="window.open('https://zhangyimin12345.github.io/my-timeline/', '_blank')">
+			<i class="fas fa-history"></i>时间轴
+		</button>
+
+		<button class="main-button" id="personalInfoBtn">
+			<i class="fas fa-user-circle"></i>个人信息
+		</button>
+
+		<button class="main-button" id="graduationMessageBtn">
+			<i class="fas fa-comment-dots"></i>毕业赠言
+		</button>
+	</div>
+
+	<div id="personalInfoBox" class="info-box" style="display: none;">
+		<div class="info-content">
+			<h3>个人信息</h3>
+			<div class="info-item">
+				<span class="info-label"><strong>姓名：</strong></span>
+				<span class="info-value"><strong>张益民</strong></span>
+			</div>
+			<div class="info-item">
+				<span class="info-label"><strong>学校：</strong></span>
+				<span class="info-value"><strong>岳麓区博才梅溪湖小学</strong></span>
+			</div>
+			<div class="info-item">
+				<span class="info-label"><strong>班级：</strong></span>
+				<span class="info-value"><strong>1904班</strong></span>
+			</div>
+			<div class="info-item">
+				<span class="info-label"><strong>学号：</strong></span>
+				<span class="info-value"><strong>20190418</strong></span>
+			</div>
+			<div class="info-item">
+				<span class="info-label"><strong>爱好：</strong></span>
+				<span class="info-value"><strong>编程</strong></span>
+			</div>
+			<div class="info-item">
+				<span class="info-label"><strong>QQ：</strong></span>
+				<span class="info-value"><strong>3396619503</strong></span>
+			</div>
+			<div class="info-item">
+				<span class="info-label"><strong>邮箱：</strong></span>
+				<span class="info-value"><strong>3396619503@qq.com</strong></span>
+			</div>
+			<div class="info-item">
+				<span class="info-label">电话：</span>
+				<span class="info-value"><strong>19373175380</strong></span>
+			</div>
+		</div>
+	</div>
+
+	<div id="graduationMessageBox" class="info-box" style="display: none;">
+		<div class="info-content">
+			<h3>毕业赠言</h3>
+			<div class="message-content">
+				<p>我们像蒲公英的种子，被毕业的风吹向四方，但根永远扎在这片共同的土壤里。</p>
+				<p>青春是未完待续的诗，愿你在下一章里：披荆斩棘时勇敢，仰望星空时从容。山顶见！愿此去前程似锦，再相逢依旧如故。毕业快乐！</p>
+			</div>
+
+			<h3 style="margin-top: 30px;">特殊的毕业赠言</h3>
+			<div class="number-buttons" id="numberButtonsContainer">
+				<!-- 按钮将由JavaScript动态生成 -->
+			</div>
+
+			<div id="specialMessageBox" style="margin-top: 20px; display: none;">
+				<h4>给 <span id="recipientNumber"></span> 号的赠言</h4>
+				<p id="specialMessageContent"></p>
+			</div>
+		</div>
+	</div>
+
+	<footer>
+		© 2025 zhangyimin12345のGithub Pages · 难忘小学生活
+	</footer>
+
+	<script>
+		// 在页面加载完成后生成数字按钮
+		document.addEventListener('DOMContentLoaded', function () {
+			const container = document.getElementById('numberButtonsContainer');
+
+			// 清空容器
+			container.innerHTML = '';
+
+			// 生成1-50的数字按钮
+			for (let i = 1; i <= 50; i++) {
+				const btn = document.createElement('button');
+				btn.className = 'number-btn';
+				btn.textContent = i;
+
+				// 如果不是默认消息，添加绿色样式类
+				if (specialMessages[i] && !["暂时还没有呢！", "404 Not Found"].includes(specialMessages[i])) {
+					btn.classList.add('special-message-btn');
+				}
+
+				btn.onclick = function () { showSpecialMessage(i); };
+				container.appendChild(btn);
+			}
+		});
+
+		document.getElementById('personalInfoBtn').addEventListener('click', function () {
+			const infoBox = document.getElementById('personalInfoBox');
+			infoBox.style.display = 'block';
+			document.getElementById('graduationMessageBox').style.display = 'none';
+		});
+
+		// 毕业赠言按钮点击事件
+		document.getElementById('graduationMessageBtn').addEventListener('click', function () {
+			const messageBox = document.getElementById('graduationMessageBox');
+			if (messageBox.style.display === 'none') {
+				messageBox.style.display = 'block';
+				document.getElementById('personalInfoBox').style.display = 'none';
+			} else {
+				messageBox.style.display = 'none';
+			}
+		});
+
+		// 特殊赠言数据
+		const specialMessages = {
+			1: "暂时还没有呢！",
+			2: "暂时还没有呢！",
+			3: "暂时还没有呢！",
+			4: "暂时还没有呢！",
+			5: "暂时还没有呢！",
+			6: "暂时还没有呢！",
+			7: "暂时还没有呢！",
+			8: "暂时还没有呢！",
+			9: "暂时还没有呢！",
+			10: "暂时还没有呢！",
+			11: "暂时还没有呢！",
+			12: "暂时还没有呢！",
+			13: "暂时还没有呢！",
+			14: "暂时还没有呢！",
+			15: "暂时还没有呢！",
+			16: "暂时还没有呢！",
+			17: "暂时还没有呢！",
+			18: "暂时还没有呢！",
+			19: "暂时还没有呢！",
+			20: "暂时还没有呢！",
+			21: "暂时还没有呢！",
+			22: "暂时还没有呢！",
+			23: "暂时还没有呢！",
+			24: "暂时还没有呢！",
+			25: "暂时还没有呢！",
+			26: "暂时还没有呢！",
+			27: "暂时还没有呢！",
+			28: "暂时还没有呢！",
+			29: "暂时还没有呢！",
+			30: "404 Not Found",
+			31: "暂时还没有呢！",
+			32: "暂时还没有呢！",
+			33: "暂时还没有呢！",
+			34: "暂时还没有呢！",
+			35: "暂时还没有呢！",
+			36: "暂时还没有呢！",
+			37: "暂时还没有呢！",
+			38: "暂时还没有呢！",
+			39: "暂时还没有呢！",
+			40: "暂时还没有呢！",
+			41: "暂时还没有呢！",
+			42: "暂时还没有呢！",
+			43: "暂时还没有呢！",
+			44: "暂时还没有呢！",
+			45: "暂时还没有呢！",
+			46: "努力学C++，下次见面希望能成神犇！",
+			47: "暂时还没有呢！",
+			48: "暂时还没有呢！",
+			49: "暂时还没有呢！",
+			50: "暂时还没有呢！"
+		};
+
+		// 显示特殊赠言
+		function showSpecialMessage(number) {
+			document.getElementById('recipientNumber').textContent = number;
+			document.getElementById('specialMessageContent').textContent =
+				specialMessages[number] || `给${number}号同学的毕业祝福：愿你前程似锦！`;
+			document.getElementById('specialMessageBox').style.display = 'block';
+		}
+	</script>
+</body>
+
+</html>
